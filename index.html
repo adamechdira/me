@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adam Echdira | Systems, Cloud & AI</title>
+    <meta name="description" content="Personal portfolio of Adam Echdira - Systems Engineering, Linux/KVM Infrastructure, Local LLMs, and Web Development.">
+    <style>
+        :root {
+            --bg-primary: #0a0c10;
+            --bg-secondary: #12161f;
+            --bg-card: #161b26;
+            --text-primary: #f0f4f8;
+            --text-secondary: #94a3b8;
+            --accent: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.15);
+            --border: #1e293b;
+            --code-font: 'JetBrains Mono', 'Fira Code', monospace;
+            --sans-font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: var(--sans-font);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Navbar */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(10, 12, 16, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 4.2rem;
+        }
+
+        .logo {
+            font-family: var(--code-font);
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--accent);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.75rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 6rem 0 4.5rem;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 0.35rem 0.85rem;
+            border-radius: 999px;
+            font-family: var(--code-font);
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #10b981;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #10b981;
+        }
+
+        h1 {
+            font-size: clamp(2.2rem, 5vw, 3.4rem);
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            margin-bottom: 1.25rem;
+        }
+
+        h1 span {
+            background: linear-gradient(90deg, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 650px;
+            margin-bottom: 2rem;
+        }
+
+        .cta-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.7rem 1.4rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: #0a0c10;
+        }
+
+        .btn-primary:hover {
+            background-color: #7dd3fc;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--border);
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .section-title {
+            font-family: var(--code-font);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Grid & Cards */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .card:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 0.6rem;
+            color: var(--text-primary);
+        }
+
+        .card p {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.2rem;
+        }
+
+        /* Tags */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+        }
+
+        .tag {
+            font-family: var(--code-font);
+            font-size: 0.75rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            color: var(--accent);
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+        }
+
+        /* Stack Columns */
+        .stack-list {
+            list-style: none;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .stack-list li {
+            padding: 0.35rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .stack-list li::before {
+            content: "▹";
+            color: var(--accent);
+            font-family: var(--code-font);
+        }
+
+        /* Terminal Box */
+        .terminal {
+            background: #0d1117;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.25rem;
+            font-family: var(--code-font);
+            font-size: 0.85rem;
+            color: #c9d1d9;
+            margin-top: 2rem;
+        }
+
+        .terminal-header {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 1rem;
+        }
+
+        .dot {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+        }
+
+        .dot-red { background: #ff5f56; }
+        .dot-yellow { background: #ffbd2e; }
+        .dot-green { background: #27c93f; }
+
+        .prompt { color: #10b981; }
+        .cmd { color: #38bdf8; }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 2.5rem 0;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+        }
+
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .hero { padding: 4rem 0 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">~/adam-echdira</a>
+                <div class="nav-links">
+                    <a href="#about">About</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#stack">Tech Stack</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Hero -->
+        <section class="hero" style="border-top: none;">
+            <div class="status-badge">
+                <span class="status-dot"></span>
+                Taroudant, Morocco • Systems & Web Builder
+            </div>
+            <h1>Hi, I'm <span>Adam Echdira</span>.<br>Building systems, cloud labs & web apps.</h1>
+            <p>
+                Passionate about Linux administration, virtualization, local AI deployments, and modern web development. Combining structured analytical thinking with hands-on infrastructure engineering.
+            </p>
+            <div class="cta-group">
+                <a href="#projects" class="btn btn-primary">Explore Projects</a>
+                <a href="https://github.com/adamechdira" target="_blank" rel="noopener" class="btn btn-outline">GitHub Profile</a>
+            </div>
+
+            <div class="terminal">
+                <div class="terminal-header">
+                    <span class="dot dot-red"></span>
+                    <span class="dot dot-yellow"></span>
+                    <span class="dot dot-green"></span>
+                </div>
+                <div><span class="prompt">adam@idxv:~$</span> <span class="cmd">whoami --details</span></div>
+                <div style="margin-top: 0.4rem; color: #8b949e;">
+                    > Focus: Linux/KVM Virtualization, Cloud Infrastructure, Local LLMs, Web Dev<br>
+                    > Languages: Python, Rust, JavaScript, HTML/CSS, Bash<br>
+                    > Location: Souss-Massa, Morocco
+                </div>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section id="about">
+            <div class="section-title">01. Background</div>
+            <h2>About Me</h2>
+            <p style="color: var(--text-secondary); max-width: 750px; font-size: 1.02rem;">
+                I enjoy dissecting how systems work from the kernel and network layer up to the user interface. Whether it's configuring KVM hypervisors on Azure cloud instances, connecting remote nodes over Tailscale mesh networks, running quantized language models locally via Ollama, or crafting fast static interfaces hosted on Cloudflare's edge network, I focus on clean, reliable, and self-hosted solutions.
+            </p>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects">
+            <div class="section-title">02. Featured Work</div>
+            <h2>Projects & Labs</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>IronCraftOS</h3>
+                    <p>Interactive web-based desktop environment and portfolio interface engineered with clean frontend architecture and responsive UI components.</p>
+                    <div class="tags">
+                        <span class="tag">HTML/CSS</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">UI/UX</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Cloud KVM & Mesh Lab</h3>
+                    <p>Virtualized multi-OS environment running on Ubuntu Server LTS with KVM/QEMU, Cockpit management, and zero-trust Tailscale networking.</p>
+                    <div class="tags">
+                        <span class="tag">Ubuntu Server</span>
+                        <span class="tag">KVM</span>
+                        <span class="tag">Tailscale</span>
+                        <span class="tag">Azure</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Local LLM Inference Stack</h3>
+                    <p>Self-hosted AI assistant pipeline powered by Ollama and Open WebUI, experimenting with custom Modelfiles and open-weights coding models.</p>
+                    <div class="tags">
+                        <span class="tag">Ollama</span>
+                        <span class="tag">Open WebUI</span>
+                        <span class="tag">Python</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Stack -->
+        <section id="stack">
+            <div class="section-title">03. Capabilities</div>
+            <h2>Technical Stack</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Systems & Networking</h3>
+                    <ul class="stack-list">
+                        <li>Ubuntu Server & Linux CLI</li>
+                        <li>KVM / QEMU Virtualization</li>
+                        <li>Tailscale VPN & Point-to-Point Links</li>
+                        <li>Cloudflare DNS, Pages & Edge Security</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Development & AI</h3>
+                    <ul class="stack-list">
+                        <li>HTML5, Modern CSS, JavaScript</li>
+                        <li>Python Scripting & Automation</li>
+                        <li>Rust & WebAssembly Basics</li>
+                        <li>Ollama & Local Model Fine-Tuning</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact">
+            <div class="section-title">04. Connect</div>
+            <h2>Get In Touch</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+                Interested in collaborating on systems, cloud setups, or web projects? Feel free to reach out.
+            </p>
+            <div class="cta-group">
+                <a href="https://github.com/adamechdira" target="_blank" rel="noopener" class="btn btn-outline">GitHub (@adamechdira)</a>
+                <a href="https://idxv.me" target="_blank" rel="noopener" class="btn btn-outline">idxv.me</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Adam Echdira • Hosted on Cloudflare Pages</p>
+        </div>
+    </footer>
+
+</body>
+</html>
