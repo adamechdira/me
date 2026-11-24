@@ -61,8 +61,8 @@ Any commit pushed to the `main` branch automatically triggers the GitHub Actions
 ## 📬 Contact & Connect
 
 - **GitHub:** [@adamechdira](https://github.com/adamechdira)
-- **Website:** *(Add your custom domain link here)*
-- **Email:** *(Add your email address here)*
+- **Website:** *(https://idxev.app)*
+- **Email:** *(idxex@idxev.me)*
 
 ---
 
