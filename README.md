@@ -1,14 +1,14 @@
-👋 Welcome to My Personal Website
+##👋 Welcome to My Personal Website
 
 This repository contains the source code for my personal portfolio and landing page (adamechdira/me). It is designed to be lightweight, fast, and clean, showcasing my work, background, and ways to connect with me.
 
-🌐 Live Demo
+##🌐 Live Demo
 
 You can visit the live website using the custom domain configured in the CNAME file, or via GitHub Pages:
 
 Live Site: https://idxev.app (Update with your custom domain if applicable)
 
-📂 Project Structure
+##📂 Project Structure
 
 me/
 ├── .github/
@@ -18,7 +18,7 @@ me/
 └── README.md         # Project documentation
 
 
-✨ Features
+##✨ Features
 
 Single-Page Architecture: Everything is cleanly structured inside index.html for fast loading times and zero build overhead.
 
@@ -28,7 +28,7 @@ Automated Deployment: Uses GitHub Actions (.github/workflows) to automatically d
 
 Custom Domain Ready: Configured with a CNAME record for seamless custom domain hosting.
 
-🚀 Getting Started (Local Development)
+##🚀 Getting Started (Local Development)
 
 Since this is a static web project, you don't need any complex build tools or package managers to run it locally:
 
@@ -50,16 +50,16 @@ python3 -m http.server 8000
 
 Then visit http://localhost:8000 in your browser.
 
-🛠️ Deployment
+##🛠️ Deployment
 
 Any commit pushed to the main branch automatically triggers the GitHub Actions workflow in .github/workflows to build and publish the site to GitHub Pages.
 
-📬 Contact & Connect
+##📬 Contact & Connect
 
 GitHub: @adamechdira
 
-Website: (Add your custom domain link here)
+Website: idxev.app
 
-Email: (Add your email address here)
+Email: mohamedchser@gmail.com
 
 © 2026 Adam Echdira. All rights reserved.
